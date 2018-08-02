@@ -6,7 +6,6 @@ import edu.metrostate.ics240.p5.STP059.morse.DecodeTree.*;
 import edu.metrostate.ics240.p5.STP059.morse.TreeNode;
 
 public class MorseCode {
-	
 	private static Map<Character, String> encoder;
 	private static MorseNode decoder;
 	
@@ -15,7 +14,6 @@ public class MorseCode {
 		new DecodeTree().decodeTreeBuilder(encoder);
 		decoder = DecodeTree.getRoot();
 	}
-
 	/*
 	 * Translates the given text of ASCII Latin Characters to its morse code equivalent. The encoding places a space between encoded characters; a space in the text is represented as a SLASH ('/') character. 
 		The text can be in mixed case.
@@ -39,21 +37,18 @@ public class MorseCode {
 					morseKey = encoder.get(inputChar);
 					builder.append(morseKey + " ");
 				}
-
 				if (!encoder.containsKey(inputChar)) {
 					if (inputChar == ' ') {
 						builder.append('/');
 					} else {
 						throw new IllegalArgumentException(
-								String.format("Illegal character encountered: %s [%s]", text, inputChar));
+						String.format("Illegal character encountered: %s [%s]", text, inputChar));
 					}
-
 				}
 			}
 			return builder.toString().replaceAll(" /", "/").trim();
 		}
 	}
-
 	/*
 	 * Decodes the provided code string to its text representation. Since Morse Code is case-less, the returned string will be in all UPPER CASE characters.
 		Preconditions:
@@ -77,20 +72,16 @@ public class MorseCode {
 			return realTextBuilder.toString().toUpperCase().trim();
 		}
 	}
-
 	/*
 	 * Returns the mapping of encodings from each character to its morse code representation.
 	 */
-
 	public static Map<Character, String> getEncodingMap() {
 		return encoder;
 	}
-
 	/*
 	 * Returns the root node of the binary tree used to decode a code string containing DOTs, DASHes, SLASHes, and space characters to its character representation
 		To ensure consistency, the right children represent DOTs, the left children DASHes.
 	 */
-	
 	public static TreeNode<Character> getDecodingTree() {
 		return decoder;
 	}
