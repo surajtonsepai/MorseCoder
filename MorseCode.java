@@ -15,12 +15,12 @@ public class MorseCode {
 		decoder = DecodeTree.getRoot();
 	}
 	/*
-	 * Translates the given text of ASCII Latin Characters to its morse code equivalent. The encoding places a space between encoded characters; a space in the text is represented as a SLASH ('/') character. 
-		The text can be in mixed case.
-		Preconditions
-
-		The text string cannot be null. If so, the method will throw a NullPointerException
-		The text contains only the subset of characters contained in the provided morseCode.txt file and spaces.
+	 * Translates the given text of ASCII Latin Characters to its morse code equivalent. The encoding places a space 
+	   between encoded characters; a space in the text is represented as a SLASH ('/') character. 
+	   The text can be in mixed case.
+	   Preconditions
+	   The text string cannot be null. If so, the method will throw a NullPointerException
+	   The text contains only the subset of characters contained in the provided morseCode.txt file and spaces.
 	 */
 	public static String encode(String text) {
 		if (text == null) {
