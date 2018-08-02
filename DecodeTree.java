@@ -29,18 +29,16 @@ public class DecodeTree {
 		 * checks to see if tree has a left child
 		 */
 		public boolean hasLeftChild () {
-            return (leftChild != null);
-        }
+           		return (leftChild != null);
+        	}
 		
 		/*
 		 * checks to see if a tree has a right child
 		 */
-        public boolean hasRightChild () {
-            return (rightChild != null);
-        }
+        	public boolean hasRightChild () {
+            		return (rightChild != null);
+        	}     
 		
-        
-       
 		public TreeNode<Character> getLeftChild() {
 			return this.leftChild;
 		}
@@ -50,10 +48,8 @@ public class DecodeTree {
 		}
 		
 		private void setValue (Character key) {
-            value = key;
-        }
-		
-		
+            		value = key;
+        	}		
 		/*
 		 * returns value of character(non-Javadoc)
 		 * @see edu.metrostate.ics240.p5.STP059.morse.TreeNode#getValue()
@@ -61,7 +57,6 @@ public class DecodeTree {
 		public Character getValue() {
 			return this.value;
 		}
-		
 		/*
 		 * Takes in a code as an input and traverses the decodetree to convert it into real text
 		 */
@@ -75,22 +70,22 @@ public class DecodeTree {
 	 			if (key.equals("-")) {
 	 				if (((MorseNode) currNode).hasLeftChild()) {
 	 					currNode = currNode.getLeftChild();
-	 				} else {
+	 				} 
+					else {
 	 					throw new IllegalArgumentException(
-	 							String.format("Invalid code encountered %s[%s]", sb.toString().trim(),code));
+	 					String.format("Invalid code encountered %s[%s]", sb.toString().trim(),code));
 	 				}
 	 			} else if (key.equals("*")) {
 	 				if (((MorseNode) currNode).hasRightChild()) {
 	 					currNode = currNode.getRightChild();
 	 				} else {
 	 					throw new IllegalArgumentException(
-	 							String.format("Invalid code encountered %s[%s]", sb.toString().trim(),code));
+	 					String.format("Invalid code encountered %s[%s]", sb.toString().trim(),code));
 	 				}
 	 			}
 	 		}
 	 		return currNode.getValue().toString();
 	 	}
-		
 	}
 	
     static MorseNode root = new MorseNode();
@@ -131,7 +126,6 @@ public class DecodeTree {
         } 
         currNode.setValue(value);
     }
-    
     /*
      * Takes the encodemap that was built from the morseCode.txt file and creates a tree from it to be used for decoding
      */
