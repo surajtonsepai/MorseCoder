@@ -10,7 +10,6 @@ public class EncodeMap {
 	Map<Character, String> encoder;
 	/**
 	 * builds a map using the text file and creating key value pairs for each character in morseCode.txt
-	 * @return
 	 */
 	public Map<Character, String> buildMap() {
 		String fileName = "morseCode.txt";
