@@ -25,16 +25,10 @@ public class DecodeTree {
 			this.rightChild = newNode;
 		}
 		
-		/*
-		 * checks to see if tree has a left child
-		 */
 		public boolean hasLeftChild () {
            		return (leftChild != null);
         	}
 		
-		/*
-		 * checks to see if a tree has a right child
-		 */
         	public boolean hasRightChild () {
             		return (rightChild != null);
         	}     
@@ -50,10 +44,7 @@ public class DecodeTree {
 		private void setValue (Character key) {
             		value = key;
         	}		
-		/*
-		 * returns value of character(non-Javadoc)
-		 * @see edu.metrostate.ics240.p5.STP059.morse.TreeNode#getValue()
-		 */
+	
 		public Character getValue() {
 			return this.value;
 		}
