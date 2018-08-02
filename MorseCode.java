@@ -25,28 +25,28 @@ public class MorseCode {
 	public static String encode(String text) {
 		if (text == null) {
 			throw new NullPointerException("Encoding Input Cannot Be Null");
-		} else {
-			Map<Character, String> encoder = getEncodingMap();
-			StringBuffer builder = new StringBuffer();
-			char[] inputTextChars = new char[text.length()];
-			inputTextChars = text.toUpperCase().toCharArray();
-			String morseKey = new String();
+		}
+		Map<Character, String> encoder = getEncodingMap();
+		StringBuffer builder = new StringBuffer();
+		char[] inputTextChars = new char[text.length()];
+		inputTextChars = text.toUpperCase().toCharArray();
+		String morseKey = new String();
 
-			for (char inputChar : inputTextChars) {
-				if (encoder.containsKey(inputChar)) {
-					morseKey = encoder.get(inputChar);
-					builder.append(morseKey + " ");
-				}
-				if (!encoder.containsKey(inputChar)) {
-					if (inputChar == ' ') {
-						builder.append('/');
-					} else {
-						throw new IllegalArgumentException(
-						String.format("Illegal character encountered: %s [%s]", text, inputChar));
-					}
+		for (char inputChar : inputTextChars) {
+			if (encoder.containsKey(inputChar)) {
+				morseKey = encoder.get(inputChar);
+				builder.append(morseKey + " ");
+			}
+			if (!encoder.containsKey(inputChar)) {
+				if (inputChar == ' ') {
+					builder.append('/');
+				} else {
+					throw new IllegalArgumentException(
+					String.format("Illegal character encountered: %s [%s]", text, inputChar));
 				}
 			}
-			return builder.toString().replaceAll(" /", "/").trim();
+		}
+		return builder.toString().replaceAll(" /", "/").trim();
 		}
 	}
 	/*
