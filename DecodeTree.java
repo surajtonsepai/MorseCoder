@@ -14,8 +14,8 @@ public class DecodeTree {
 		private Character value;
 
 		private void setParent (MorseNode n) {
-	        parent = n;
-	    }
+	        	parent = n;
+	    	}
 
 		private void setLeftChild(TreeNode<Character> newNode) {
 			this.leftChild = newNode;
