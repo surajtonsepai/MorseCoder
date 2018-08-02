@@ -78,53 +78,53 @@ public class DecodeTree {
 	 	}
 	}
 	
-    static MorseNode root = new MorseNode();
-    DecodeTree decodeTree;
+	static MorseNode root = new MorseNode();
+    	DecodeTree decodeTree;
     
-    public static MorseNode getRoot() {
-        return root;
-    }
+	public static MorseNode getRoot() {
+        	return root;
+    	}
     
-    private void insert (Character character, String code) {
-        Character value = character;
-        String path = code;
-        String nKey = "";
-        MorseNode currNode = getRoot();
-        MorseNode tempNode = new MorseNode();
+	private void insert (Character character, String code) {
+		Character value = character;
+		String path = code;
+		String nKey = "";
+		MorseNode currNode = getRoot();
+		MorseNode tempNode = new MorseNode();
 
-        for (int i=0; i<path.length(); i++) {
-            nKey = path.substring(i,i+1);
-            if (nKey.equals("-")) {
-                if (currNode.hasLeftChild()) {
-                    currNode = (MorseNode) currNode.getLeftChild();
-                } else {
-                    currNode.setLeftChild(new MorseNode());
-                    tempNode = currNode;
-                    currNode = (MorseNode) currNode.getLeftChild();
-                    currNode.setParent(tempNode);
-                }
-            } else {
-                if (currNode.hasRightChild()) {
-                    currNode = (MorseNode) currNode.getRightChild();
-                } else {
-                    currNode.setRightChild(new MorseNode());
-                    tempNode = currNode;
-                    currNode = (MorseNode) currNode.getRightChild();
-                    currNode.setParent(tempNode);
-                }
-            }
-        } 
-        currNode.setValue(value);
-    }
-    /*
-     * Takes the encodemap that was built from the morseCode.txt file and creates a tree from it to be used for decoding
-     */
-    public DecodeTree decodeTreeBuilder(Map<Character, String> encoderString) {
-    	Map<Character, String> dictionary = encoderString;
-		DecodeTree decodeTree = new DecodeTree();
-		for(Map.Entry<Character, String> entry : dictionary.entrySet()) {
-			(decodeTree).insert(entry.getKey(), entry.getValue());
-		}
-		return decodeTree;
+		for (int i=0; i<path.length(); i++) {
+		    nKey = path.substring(i,i+1);
+		    if (nKey.equals("-")) {
+			if (currNode.hasLeftChild()) {
+			    currNode = (MorseNode) currNode.getLeftChild();
+			} else {
+			    currNode.setLeftChild(new MorseNode());
+			    tempNode = currNode;
+			    currNode = (MorseNode) currNode.getLeftChild();
+			    currNode.setParent(tempNode);
+			}
+		    } else {
+			if (currNode.hasRightChild()) {
+		    		currNode = (MorseNode) currNode.getRightChild();
+			} else {
+		    		currNode.setRightChild(new MorseNode());
+			   	tempNode = currNode;
+			    	currNode = (MorseNode) currNode.getRightChild();
+			    	currNode.setParent(tempNode);
+				}
+	    		}
+		} 
+		currNode.setValue(value);
 	}
-}
+	/*
+	* Takes the encodemap that was built from the morseCode.txt file and creates a tree from it to be used for decoding
+	*/
+	public DecodeTree decodeTreeBuilder(Map<Character, String> encoderString) {
+		Map<Character, String> dictionary = encoderString;
+			DecodeTree decodeTree = new DecodeTree();
+			for(Map.Entry<Character, String> entry : dictionary.entrySet()) {
+				(decodeTree).insert(entry.getKey(), entry.getValue());
+			}
+		return decodeTree;
+		}
+	}
