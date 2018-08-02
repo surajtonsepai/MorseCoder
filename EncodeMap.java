@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class EncodeMap {
-	Map<Character, String> encoder;
+	private Map<Character, String> encoder;
 	/**
 	 * Builds a map using the text file and creates key value pairs for each character in morseCode.txt
 	 */
