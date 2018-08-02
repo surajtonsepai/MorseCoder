@@ -61,8 +61,7 @@ public class DecodeTree {
 	 			if (key.equals("-")) {
 	 				if (((MorseNode) currNode).hasLeftChild()) {
 	 					currNode = currNode.getLeftChild();
-	 				} 
-					else {
+	 				} else {
 	 					throw new IllegalArgumentException(
 	 					String.format("Invalid code encountered %s[%s]", sb.toString().trim(),code));
 	 				}
